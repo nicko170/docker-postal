@@ -2,7 +2,7 @@ FROM ruby:2.4
 
 ## Install nodejss
 RUN apt-get -y update \
-&& apt-get -y install nodejs mysql-client\
+&& apt-get -y install nodejs mysql-client spamassassin\
 && rm -rf /var/lib/apt/lists/*
 
 ## Install required gems
