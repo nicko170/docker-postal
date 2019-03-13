@@ -1,10 +1,12 @@
 FROM ruby:2.4
 
 ## Install nodejss
-RUN apt-get -y update \
-&& apt-get -y install nodejs mysql-client\
-&& rm -rf /var/lib/apt/lists/*
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get update \
+    && apt-get install -y nodejs mysql-client \
+    && rm -rf /var/lib/apt/lists/*
+        
 ## Install required gems
 RUN gem install bundler && gem install procodile
 
