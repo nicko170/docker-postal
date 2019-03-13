@@ -31,7 +31,7 @@ rm -rf /opt/postal/tmp/pids/*
 
 ## Initialize DB
 echo "== Waiting for MySQL to start up =="
-while ! mysqladmin ping -h mysql --silent; do
+while ! mysqladmin ping -h $MYSQL_HOST --silent; do
     sleep 1
 done
 if [[ $(mysql -h $MYSQL_HOST -u$MYSQL_USER -p$MYSQL_PASSWORD -s --skip-column-names -e "SELECT COUNT(DISTINCT table_name) FROM information_schema.columns WHERE table_schema = 'postal'") == 0 ]]; then
